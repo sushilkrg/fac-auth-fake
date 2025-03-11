@@ -115,17 +115,28 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # byyyyy myselfffffff
 # Replace the DATABASES section of your settings.py with this
-tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
+# tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': tmpPostgres.path.replace('/', ''),
+#         'USER': tmpPostgres.username,
+#         'PASSWORD': tmpPostgres.password,
+#         'HOST': tmpPostgres.hostname,
+#         'PORT': 5432,
+#     }
+# }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.replace('/', ''),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
+        'NAME': 'neondb',  
+        'USER': 'neondb_owner',  
+        'PASSWORD': 'npg_8hZSHFtiQaG4',  
+        'HOST': 'ep-noisy-moon-a1s05bl7-pooler.ap-southeast-1.aws.neon.tech', 
         'PORT': 5432,
     }
 }
@@ -172,7 +183,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
